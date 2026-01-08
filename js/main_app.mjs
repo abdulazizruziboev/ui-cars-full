@@ -1,14 +1,13 @@
 import {
-  el_theme_changer,
-  el_moon,
-  el_sun,
   el_skeleton_templates,
   el_cards_templates,
   el_skeleton_box,
   el_cards_box,
   el_pagination_box,
   el_pagination_previous,
-  el_pagination_next
+  el_pagination_next,
+  el_reload_btn,
+  el_error_box
 } from "./dom_elements.mjs";
 let api_skip = 0,
 api_limit = 16;
@@ -23,7 +22,7 @@ function mainRequests() {
     .then((res)=>{
         skeletonUI(false);
         cardsUI(res.data,res.total)
-    })
+    }).catch(()=>el_error_box.style.display="flex");
 }
 function skeletonUI(bool,el_limit) {
 el_skeleton_box.innerHTM="";
@@ -51,7 +50,7 @@ function cardsUI(data,total) {
         el_clone_card.querySelector(".js-car-generation").textContent=el.generation?el.generation:"No data";
         el_clone_card.querySelector(".js-car-year").textContent=el.year?el.year:"No data";
         el_clone_card.querySelector(".js-car-category").textContent=el.category?el.category:"No data";
-        el_clone_card.querySelector(".js-car-link").href=`/details?id=${el.id}`?`/details?id=${el.id}`:`/details?id=${inx}`;
+        el_clone_card.querySelector(".js-car-link").href=`/details?id=${el.id}`?`/details/index.html?id=${el.id}`:`/details?id=${inx}`;
         el_cards_box.append(el_clone_card);
     });
     /**/
@@ -80,3 +79,7 @@ function paginationDisabler(bool) {
     el_pagination_next.style.pointerEvents="all";    
     }
 };
+
+el_reload_btn.addEventListener("click",()=>{
+    location.reload()
+});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-[#eee] font-['Poppins']">
+<html lang="en" class="bg-[#eee] font-['Poppins'] dark:bg-[#222]">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -9,9 +9,107 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Cars - Home</title>
+    <title>World Cars - Details</title>
 </head>
-<body>
-    <script src="/js/main_app.mjs" type="module"></script>
+<body >
+<main class="py-5 px-6 flex-col flex gap-y-[10px] h-[100vh] justify-center items-center w-full">
+
+<template class="js-card-template">
+    <div class="js-car-card flex flex-col  w-full max-w-[320px] rounded-[12px] py-3 px-3 dark:text-[#ddd] dark:border-[#ddd3] dark:bg-[#222]">
+<span class="font-[555] text-[20px]">
+    <span class="js-car-name">No Data</span>
+</span>
+<span class="text-[16px]">
+    <span>Trim:&nbsp;</span>
+    <span class="js-car-trim">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Generation:&nbsp;</span>
+    <span class="js-car-generation">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Year:&nbsp;</span>
+    <span class="js-car-year">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Country:&nbsp;</span>
+    <span class="js-car-country">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Category:&nbsp;</span>
+    <span class="js-car-category">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Seats:&nbsp;</span>
+    <span class="js-car-seats">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Doors:&nbsp;</span>
+    <span class="js-car-doors">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Engine:&nbsp;</span>
+    <span class="js-car-engine">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>HorsePower:&nbsp;</span>
+    <span class="js-car-hp">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Fuel type:&nbsp;</span>
+    <span class="js-car-fuel">No data</span>
+</span>
+<span class="text-[16px]">
+    <span>Max Speed:&nbsp;</span>
+    <span class="js-car-speed">No data</span>
+</span>
+<span class="text-[16px] flex items-center">
+    <span>Color:&nbsp;</span>
+    <span class="js-car-color-hex w-[15px] h-[15px] bg-[#ddd] inline-block rounded-full"></span>
+</span>
+<div class="tabs tabs-border dark:text-[#ddd]">
+<input type="radio" name="my_tabs_2" class="tab dark:text-[#ddd] border-none" aria-label="City" checked="checked"/>
+<div class="js-car-city tab-content border-2 relative mt-[4px] dark:border-white bg-base-100 dark:text-[#ddd] p-4 dark:bg-[#222]" >No data</div>
+<input type="radio" name="my_tabs_2" class="tab dark:text-[#ddd] border-none" aria-label="Highway" />
+<div class="js-car-highway tab-content border-2 relative mt-[4px] dark:border-white bg-base-100 dark:text-[#ddd] p-4 dark:bg-[#222]">No data</div>
+<input type="radio" name="my_tabs_2" class="tab dark:text-[#ddd] border-none" aria-label="Combined" />
+<div class="js-car-combined tab-content border-2 relative mt-[4px] dark:border-white bg-base-100 dark:text-[#ddd] p-4 dark:bg-[#222]">No data</div>
+</div>
+</div>
+</template>
+
+<template class="js-skeleton-template">
+    <div class="js-car-card flex flex-col  w-full max-w-[320px] rounded-[12px] py-3 px-3 dark:text-[#ddd] dark:border-[#ddd3] dark:bg-[#222] gap-2">
+        <span class="min-h-[30px] max-w-[140px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[30px] w-full skeleton dark:bg-[#0005]"></span>
+        <span class="min-h-[60px] w-full skeleton dark:bg-[#0005]"></span>
+    </div>
+</template>
+
+    <a href="/index.html" class="dark:text-[#ddd] flex items-center dark:bg-[#0005] pr-2 min-w-[100px] justify-center min-h-[40px] rounded-full hover:border-1 transition-all duration-300 fixed top-0 left-0 mt-6 ml-8">
+       <svg width="22" height="22" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> 
+       <span>Back</span>
+    </a>
+
+    <div class="js-skeleton-box  flex justify-center items-center min-w-[320px]"></div>
+    <div class="js-details-box  min-w-[320px]"></div>
+
+    <div class="js-error-box hidden items-center justify-center w-full h-full fixed dark:bg-[#333] flex-col gap-4 top-0 left-0">
+        <span class="dark:text-[#ddd9] text-[24px]">Opps... <br>  Something wrong</span>
+            <a href="/index.html" class="dark:text-[#ddd] flex items-center dark:bg-[#0005] pr-2 min-w-[100px] justify-center min-h-[40px] rounded-full hover:border-1 transition-all duration-300">
+       <svg width="22" height="22" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> 
+       <span>Back</span>
+    </a>
+    </div>
+
+</main>
+    <script src="/details/js/main_app.js" type="module"></script>
 </body>
 </html>
+
