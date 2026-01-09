@@ -21,7 +21,8 @@ function mainRequests() {
     })
     .then((res)=>{
         skeletonUI(false);
-        cardsUI(res.data,res.total)
+        if(res.data==null) {el_error_box.style.display="flex"};
+        cardsUI(res.data, res.total);
     }).catch(()=>el_error_box.style.display="flex");
 }
 function skeletonUI(bool,el_limit) {
