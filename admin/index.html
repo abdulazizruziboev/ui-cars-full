@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="font-[Poppins]">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cars - Panel</title>
+</head>
+<body>
+    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-99">
+        <div class="flex items-center justify-between w-full max-w-[1440px] px-10">
+                <span class="text-[20px]">
+                    Admin Panel
+                </span>
+                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-3 border-[transparent] hover:border-[#333] transition-all duration-300" >
+                <span class="fa fa-home"></span>
+        </a>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="mx-auto flex max-w-[1440px] w-full justify-center items-center">
+        <div class="w-full px-10 py-5">
+            <template class="js-skeleton-template">
+                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between">
+                    <div class="flex gap-5 items-center">
+                        <span class="skeleton min-h-[75%] min-w-[35px] bg-[#0001]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001]"></span>
+                    <span>
+                    </span>
+                    </div>
+                    <div class="flex gap-2">
+                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001]"></span>
+                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001]"></span>
+                    </div>
+            </div>
+            </template>
+
+            <template class="js-card-template">
+            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between">
+                    <div class="flex gap-5 items-center">
+                        <span>
+                        ID:
+                        <span class="js-item-id">1</span>
+                    </span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span>
+                        Name:
+                        <span class="js-item-name">ABCD</span>
+                    </span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span>
+                        Year:
+                        <span class="js-item-year">ABCD</span>
+                    </span>
+                    </div>
+                    <div>
+                        <button class="js-details-button bg-[dodgerblue] p-[8px_8px] rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
+                            <svg width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <button class="js-delete-button bg-[red] bg-[dodgerblue] p-[8px_4px] rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
+                            <svg width="39" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+            </div>
+            </template>
+
+            <div class="js-skeleton-box flex flex-col gap-y-4"></div>
+            <div class="js-items-box flex flex-col gap-y-4"></div>
+        </div>
+        </div>
+    </main>
+
+<script src="./js/main_app.mjs" type="module"></script>
+</body>
+</html>
