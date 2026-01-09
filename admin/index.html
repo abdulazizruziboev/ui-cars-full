@@ -13,53 +13,53 @@
     <title>World Cars - Panel</title>
 </head>
 <body>
-    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2">
+    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2 dark:bg-[#333] dark:text-white">
         <div class="flex items-center justify-between w-full max-w-[1440px] px-10">
                 <span class="text-[20px]">
                     Admin Panel
                 </span>
-                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-3 border-[transparent] hover:border-[#333] transition-all duration-300" >
+                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-3 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white " >
                 <span class="fa fa-home"></span>
         </a>
         </div>
     </header>
 
 
-    <main class="py-5">
+    <main class="py-5 dark:bg-[#222]">
 
         <div class="mx-auto flex max-w-[1440px] w-full justify-center items-center">
         <div class="w-full px-10 py-5">
             <template class="js-skeleton-template">
-                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between">
+                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:border-[#ddd3]">
                     <div class="flex gap-5 items-center">
-                        <span class="skeleton min-h-[75%] min-w-[35px] bg-[#0001]"></span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
-                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001]"></span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
-                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001]"></span>
+                        <span class="skeleton min-h-[75%] min-w-[35px] bg-[#0001] dark:bg-[#ddd3]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001] dark:bg-[#ddd3]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     <span>
                     </span>
                     </div>
                     <div class="flex gap-2">
-                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001]"></span>
-                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001]"></span>
+                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
+                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     </div>
             </div>
             </template>
 
             <template class="js-card-template">
-            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between">
+            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333]">
                     <div class="flex gap-5 items-center">
                         <span>
                         ID:
                         <span class="js-item-id">1</span>
                     </span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
                     <span>
                         Name:
                         <span class="js-item-name">ABCD</span>
                     </span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003]"></span>
+                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
                     <span>
                         Year:
                         <span class="js-item-year">ABCD</span>
@@ -77,7 +77,7 @@
             </template>
 
             <template class="js-details-template">
-                        <div class="js-car-card flex flex-col  w-full max-w-[320px] rounded-[12px] py-3 px-3">
+                        <div class="js-car-card flex flex-col  w-full max-w-[320px] rounded-[12px] py-3 px-3 dark:text-white">
                     <span class="font-[555] text-[20px]">
                         <span class="js-car-name">No Data</span>
                     </span>
@@ -129,28 +129,28 @@
                         <span>Color:&nbsp;</span>
                         <span class="js-car-color-hex w-[15px] h-[15px] bg-[#ddd] inline-block rounded-full"></span>
                     </span>
-                    <div class="tabs tabs-border ">
-                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="City" checked="checked"/>
-                    <div class="js-car-city tab-content border-2 relative mt-[4px] bg-base-100  p-4" >No data</div>
-                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="Highway" />
-                    <div class="js-car-highway tab-content border-2 relative mt-[4px] bg-base-100  p-4">No data</div>
-                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="Combined" />
-                    <div class="js-car-combined tab-content border-2 relative mt-[4px] bg-base-100  p-4">No data</div>
+                    <div class="tabs tabs-border">
+                    <input type="radio" name="my_tabs_2" class="tab  border-none dark:text-white" aria-label="City" checked="checked"/>
+                    <div class="js-car-city tab-content border-2 relative mt-[4px] bg-base-100  p-4 dark:bg-[#0003]">No data</div>
+                    <input type="radio" name="my_tabs_2" class="tab  border-none dark:text-white" aria-label="Highway" />
+                    <div class="js-car-highway tab-content border-2 relative mt-[4px] bg-base-100  p-4 dark:bg-[#0003]">No data</div>
+                    <input type="radio" name="my_tabs_2" class="tab  border-none dark:text-white" aria-label="Combined" />
+                    <div class="js-car-combined tab-content border-2 relative mt-[4px] bg-base-100  p-4 dark:bg-[#0003]">No data</div>
                     </div>
                     </div>
             </template>
 
             <template class="js-details-skeleton-template">
                 <div class="js-car-card flex flex-col  w-full min-w-[320px] rounded-[12px] py-3 px-3 gap-2">
-                    <span class="min-h-[30px] max-w-[140px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[30px] w-full skeleton"></span>
-                    <span class="min-h-[60px] w-full skeleton"></span>
+                    <span class="min-h-[30px] max-w-[140px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[60px] w-full skeleton dark:bg-[#0003]"></span>
                 </div>
             </template>
 
@@ -158,8 +158,8 @@
             <div class="js-skeleton-box flex flex-col gap-y-4"></div>
             <div class="js-items-box flex flex-col gap-y-4"></div>
 
-            <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden">
-                <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300" data-tip="Close Modal">
+            <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden dark:bg-[#333]">
+                <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal">
                     <span class="fa fa-xmark"></span>
                 </button>
 

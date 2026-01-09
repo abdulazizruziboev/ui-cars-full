@@ -13,7 +13,7 @@ import {
 } from "./dom_elements.mjs";
 
 function mainReuqests() {
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=10")
+    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
     .then((res)=>res.json())
     .then(
         (res)=>{
@@ -48,7 +48,7 @@ function itemsUI(data) {
     let id = evt.target.getAttribute("data-delete-id");
     evt.target.style.cssText = 
     `opacity:0.75;pointer-events:none;`;
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars/x/"+id,{
+    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars/"+id,{
         method:"DELETE"
     })
     .then(res=>res.text())
