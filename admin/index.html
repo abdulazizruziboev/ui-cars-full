@@ -13,7 +13,7 @@
     <title>World Cars - Panel</title>
 </head>
 <body>
-    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-99">
+    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2">
         <div class="flex items-center justify-between w-full max-w-[1440px] px-10">
                 <span class="text-[20px]">
                     Admin Panel
@@ -24,7 +24,9 @@
         </div>
     </header>
 
+
     <main class="py-5">
+
         <div class="mx-auto flex max-w-[1440px] w-full justify-center items-center">
         <div class="w-full px-10 py-5">
             <template class="js-skeleton-template">
@@ -63,19 +65,111 @@
                         <span class="js-item-year">ABCD</span>
                     </span>
                     </div>
-                    <div>
-                        <button class="js-details-button bg-[dodgerblue] p-[8px_8px] rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
-                            <svg width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <div class="flex gap-x-2 relative top-2">
+                        <button class="js-details-button bg-[dodgerblue] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
+                            <svg class="pointer-events-none" width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                         </button>
-                        <button class="js-delete-button bg-[red] bg-[dodgerblue] p-[8px_4px] rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
-                            <svg width="39" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <button class="js-delete-button bg-[red] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
+                            <span class="fa fa-trash pointer-events-none"></span>
                         </button>
                     </div>
             </div>
             </template>
 
+            <template class="js-details-template">
+                        <div class="js-car-card flex flex-col  w-full max-w-[320px] rounded-[12px] py-3 px-3">
+                    <span class="font-[555] text-[20px]">
+                        <span class="js-car-name">No Data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Trim:&nbsp;</span>
+                        <span class="js-car-trim">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Generation:&nbsp;</span>
+                        <span class="js-car-generation">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Year:&nbsp;</span>
+                        <span class="js-car-year">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Country:&nbsp;</span>
+                        <span class="js-car-country">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Category:&nbsp;</span>
+                        <span class="js-car-category">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Seats:&nbsp;</span>
+                        <span class="js-car-seats">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Doors:&nbsp;</span>
+                        <span class="js-car-doors">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Engine:&nbsp;</span>
+                        <span class="js-car-engine">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>HorsePower:&nbsp;</span>
+                        <span class="js-car-hp">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Fuel type:&nbsp;</span>
+                        <span class="js-car-fuel">No data</span>
+                    </span>
+                    <span class="text-[16px]">
+                        <span>Max Speed:&nbsp;</span>
+                        <span class="js-car-speed">No data</span>
+                    </span>
+                    <span class="text-[16px] flex items-center">
+                        <span>Color:&nbsp;</span>
+                        <span class="js-car-color-hex w-[15px] h-[15px] bg-[#ddd] inline-block rounded-full"></span>
+                    </span>
+                    <div class="tabs tabs-border ">
+                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="City" checked="checked"/>
+                    <div class="js-car-city tab-content border-2 relative mt-[4px] bg-base-100  p-4" >No data</div>
+                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="Highway" />
+                    <div class="js-car-highway tab-content border-2 relative mt-[4px] bg-base-100  p-4">No data</div>
+                    <input type="radio" name="my_tabs_2" class="tab  border-none" aria-label="Combined" />
+                    <div class="js-car-combined tab-content border-2 relative mt-[4px] bg-base-100  p-4">No data</div>
+                    </div>
+                    </div>
+            </template>
+
+            <template class="js-details-skeleton-template">
+                <div class="js-car-card flex flex-col  w-full min-w-[320px] rounded-[12px] py-3 px-3 gap-2">
+                    <span class="min-h-[30px] max-w-[140px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[30px] w-full skeleton"></span>
+                    <span class="min-h-[60px] w-full skeleton"></span>
+                </div>
+            </template>
+
+
             <div class="js-skeleton-box flex flex-col gap-y-4"></div>
             <div class="js-items-box flex flex-col gap-y-4"></div>
+
+            <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden">
+                <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300" data-tip="Close Modal">
+                    <span class="fa fa-xmark"></span>
+                </button>
+
+                <div class="js-details-skeleton-box"></div>
+
+                <div class="js-details-box">
+                    
+                </div>
+
+            </div>
         </div>
         </div>
     </main>

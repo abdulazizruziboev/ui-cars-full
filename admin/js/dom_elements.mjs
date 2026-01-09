@@ -1,12 +1,24 @@
 const el_skeleton_template = document.querySelector(".js-skeleton-template"),
 el_items_template = document.querySelector(".js-card-template"),
+el_details_template = document.querySelector(".js-details-template"),
 el_skeleton_box = document.querySelector(".js-skeleton-box"),
 el_items_box = document.querySelector(".js-items-box"),
-el_dom_header = document.querySelector(".js-dom-header")
+el_details_box = document.querySelector(".js-details-box"),
+el_dom_header = document.querySelector(".js-dom-header"),
+el_details_skeleton = document.querySelector(".js-details-skeleton-template"),
+el_details_skeleton_box = document.querySelector(".js-details-skeleton-box"),
+el_details_modal = document.querySelector(".js-detail-modal"),
+el_details_modal_close = document.querySelector(".js-modal-close")
 export {
     el_skeleton_template,
     el_items_template,
+    el_details_template,
     el_skeleton_box,
     el_items_box,
-    el_dom_header
+    el_details_box,
+    el_dom_header,
+    el_details_skeleton,
+    el_details_skeleton_box,
+    el_details_modal,
+    el_details_modal_close
 };
