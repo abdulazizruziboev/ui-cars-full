@@ -155,7 +155,7 @@
             <!-- Main Box Section -->
 
             <div class="flex items-center justify-between pb-10">
-                <button class="bg-[#0009] text-white cursor-pointer rounded-[10px] h-full min-h-[42px] px-4 transition-colors duration-300 hover:bg-[#000] dark:hover:bg-[#222] dark:bg-[#444] dark:text-white dark:border-2 dark:border-transparent dark:hover:border-white">
+                <button class="js-add-modal-open bg-[#0009] text-white cursor-pointer rounded-[10px] h-full min-h-[42px] px-4 transition-colors duration-300 hover:bg-[#000] dark:hover:bg-[#222] dark:bg-[#444] dark:text-white dark:border-2 dark:border-transparent dark:hover:border-white">
                     <span class="fas fa-plus"></span>
                     <span>Add car</span>
                 </button>
@@ -219,8 +219,13 @@
                 <div class="js-details-box transition-all duration-500"></div>
             </div>
 
-            <div class="js-add-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center flex dark:bg-[#333]">
+            <div class="js-add-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden dark:bg-[#333]">
                 <button class="js-add-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal"><span class="fa fa-xmark"></span></button>
+
+                <div class="js-add-toast fixed pointer-events-none top-10 transition-opacity duration-300 border-2 flex items-center justify-center py-3 rounded-[12px] min-w-[350px] h-auto bg-[#ddd] text-[#333] dark:text-[#ddd] dark:bg-[#333] opacity-[0]">
+                <span class="js-add-toast-text"></span>
+                </div>
+
 
                 <div class="grid grid-rows-2 grid-cols-2 gap-3 max-w-[1440px] w-full px-10" >
                     <span class="col-span-full text-[22px] relative top-4 text-[#0009]">Add new car</span>
@@ -238,7 +243,7 @@
                     <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="engine" data-input="engine">
                     <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="horsepower" data-input="horsepower">
                     <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="country" data-input="country">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="fuelType" data-input="fuelType">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="fuel type" data-input="fuelType">
                     <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="city consumption" data-input="cityConsumption">
                     <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="highway consumption" data-input="highwayConsumption">
                     <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="combined consumption" data-input="combinedConsumption">

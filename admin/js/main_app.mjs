@@ -22,10 +22,11 @@ import {
 let editID=null;
 
 function mainReuqests() {
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=3")
+    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
     .then((res)=>res.json())
     .then(
         (res)=>{
+            console.log(res.data);
             itemsUI(res.data);
         }
     );
@@ -224,6 +225,12 @@ el_edit_select.addEventListener("change",(evt)=>{
     if(el_fuel_select.value=="no_selected") {
         el_fuel_input.disabled=true;
     }
+    
+    if(evt.target.value=="description"){
+        el_fuel_input.style.cssText=`
+        resize: vertical;
+        `
+    }
 })
 
 el_fuel_select.addEventListener("change",(evt)=>{
@@ -355,13 +362,110 @@ if(el_fuel_input.value.trim()=='') {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
-
+let toast = document.querySelector(".js-add-toast");
+toast.cssText=`transition: opacity 5s ease-in-out ;`;
+let toastText = document.querySelector(".js-add-toast-text");
+function addToast(textz,color) {
+toastText.textContent=textz;
+toast.style.cssText=`
+box-shadow: inset 0px 0px 20px ${color};
+border-color: ${color};
+`;
+toast.classList.remove("opacity-[0]");
+toast.classList.add("opacity-[1]");
+setTimeout(()=>{
+toast.classList.remove("opacity-[1]");
+toast.classList.add("opacity-[0]");
+},4000)
+}
 document.querySelectorAll(".js-data-add-input").forEach(el=>{
    el.placeholder=`* Please enter ${el.ariaLabel}`;
 });
-
-document.querySelector(".js-data-add-input").addEventListener("click",()=>{
+document.querySelector(".js-data-add-button").addEventListener("click",()=>{
+let text="";
+let arr=[];
+let arr2=[];
 document.querySelectorAll(".js-data-add-input").forEach(el=>{
-   el.placeholder=`* Please enter ${el.ariaLabel}`;
-});     
+    if(el.value.trim()=='') {
+        arr.push(el.ariaLabel);
+        arr2.push(el.value);   
+        setTimeout(()=>{
+        el.classList.add("border-orange-600");
+        el.classList.add("bg-red-200");
+        },250)
+        setTimeout(()=>{
+        el.classList.remove("border-orange-600");
+        el.classList.remove("bg-red-200");
+        },500)
+        setTimeout(()=>{
+        el.classList.add("border-orange-600");
+        el.classList.add("bg-red-200");
+        },750)
+        setTimeout(()=>{
+        el.classList.remove("border-orange-600");
+        el.classList.remove("bg-red-200");
+        },1000)
+        text=`Please field ${arr[0]} input!`;addToast(text,"#ff0000d6")
+    }
+});
+if(arr2=='') {
+    addToast("Request sending...","#00bafe")
+    newCarAdd();
+}
+});
+
+function newCarAdd() {
+const newCarObj = {
+"name": document.querySelector(`[data-input="name"]`).value,
+"trim": document.querySelector(`[data-input="trim"]`).value,
+"generation": document.querySelector(`[data-input="generation"]`).value,
+"year": document.querySelector(`[data-input="year"]`).value,
+"color": document.querySelector(`[data-input="color"]`).value,
+"colorName": document.querySelector(`[data-input="colorName"]`).value,
+"category": document.querySelector(`[data-input="category"]`).value,
+"doorCount": document.querySelector(`[data-input="doorCount"]`).value,
+"seatCount": document.querySelector(`[data-input="seatCount"]`).value,
+"maxSpeed": document.querySelector(`[data-input="maxSpeed"]`).value+" km/h",
+"acceleration": `0-100 km/h: ${document.querySelector(`[data-input="acceleration"]`).value}s`,
+"engine": document.querySelector(`[data-input="engine"]`).value,
+"horsepower": document.querySelector(`[data-input="horsepower"]`).value,
+"fuelType": document.querySelector(`[data-input="fuelType"]`).value,
+"fuelConsumption": {
+"city": document.querySelector(`[data-input="cityConsumption"]`).value + " L/100km",
+"highway": document.querySelector(`[data-input="highwayConsumption"]`).value+" L/100km",
+"combined": document.querySelector(`[data-input="combinedConsumption"]`).value+" L/100km"
+},
+"country": document.querySelector(`[data-input="country"]`).value,
+"description": document.querySelector(`[data-input="description"]`).value,
+}
+fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
+    method:"POST",
+    headers: {
+        "Content-Type":"application/json"
+    },
+    body: JSON.stringify(newCarObj)
+    })
+    .then(res=>{
+        if(res.ok) {
+            addToast("Car successfuly added","#00d390")
+            document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
+        }
+    }).catch((err)=>{
+        addToast("Error... try again","#d30000ff");
+        console.log(err);
+    })
+}
+
+document.querySelector(".js-add-modal-close")
+.addEventListener("click",()=>{
+    document.querySelector(".js-add-modal").classList.remove("flex");
+    document.querySelector(".js-add-modal").classList.add("hidden");
+    document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
+})
+
+document.querySelector(".js-add-modal-open")
+.addEventListener("click",()=>{
+    document.querySelector(".js-add-modal").classList.remove("hidden");
+    document.querySelector(".js-add-modal").classList.add("flex");
+    document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
 })
