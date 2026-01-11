@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="font-[Poppins]">
+<html lang="en" class="h-[100vh] dark:bg-[#222]">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -12,29 +12,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Cars - Panel</title>
 </head>
-<body>
-    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2 dark:bg-[#333] dark:text-white">
+<body class="font-[Poppins] dark:bg-[#222]">
+    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2 dark:bg-[#333] dark:text-white border-b-1 border-[#0005]">
         <div class="flex items-center justify-between w-full max-w-[1440px] px-10">
                 <span class="text-[20px]">
                     Admin Panel
                 </span>
-                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-3 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white " >
-                <span class="fa fa-home"></span>
-        </a>
+                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white " >
+                        <span class="fa fa-home"></span>
+                 </a>
         </div>
     </header>
 
-
+    <!-- Main Section -->
     <main class="py-5 dark:bg-[#222]">
-
+            <!-- Main Section Container -->
         <div class="mx-auto flex max-w-[1440px] w-full justify-center items-center">
-        <div class="w-full px-10 py-5">
+            <div class="w-full px-10 py-5">   
+
             <template class="js-skeleton-template">
                 <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:border-[#ddd3]">
                     <div class="flex gap-5 items-center">
                         <span class="skeleton min-h-[75%] min-w-[35px] bg-[#0001] dark:bg-[#ddd3]"></span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
                     <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     <span>
@@ -43,31 +42,30 @@
                     <div class="flex gap-2">
                     <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
+                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
                     </div>
             </div>
             </template>
 
             <template class="js-card-template">
             <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333]">
-                    <div class="flex gap-5 items-center">
-                        <span>
+                    <div class="flex gap-5 items-center min-w-[50%] max-w-[520px] justify-between">
+                        <span class="min-w-[60px] max-w-[125px] text-start w-auto flex gap-1">
                         ID:
-                        <span class="js-item-id">1</span>
+                        <span class="js-item-id text-elipse">1</span>
                     </span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span>
+                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="min-w-[220px] w-full text-start">
                         Name:
-                        <span class="js-item-name">ABCD</span>
-                    </span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span>
-                        Year:
-                        <span class="js-item-year">ABCD</span>
+                        <span class="js-item-name text-elipse">ABCD</span>
                     </span>
                     </div>
                     <div class="flex gap-x-2 relative top-2">
                         <button class="js-details-button bg-[dodgerblue] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
                             <svg class="pointer-events-none" width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <button class="js-edit-button bg-[orange] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Edit Current Item">
+                            <span class="fas fa-pen-to-square pointer-events-none"></span>
                         </button>
                         <button class="js-delete-button bg-[red] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
                             <span class="fa fa-trash pointer-events-none"></span>
@@ -154,26 +152,115 @@
                 </div>
             </template>
 
+            <!-- Main Box Section -->
+
+            <div class="flex items-center justify-between pb-10">
+                <button class="bg-[#0009] text-white cursor-pointer rounded-[10px] h-full min-h-[42px] px-4 transition-colors duration-300 hover:bg-[#000] dark:hover:bg-[#222] dark:bg-[#444] dark:text-white dark:border-2 dark:border-transparent dark:hover:border-white">
+                    <span class="fas fa-plus"></span>
+                    <span>Add car</span>
+                </button>
+            </div>
 
             <div class="js-skeleton-box flex flex-col gap-y-4"></div>
             <div class="js-items-box flex flex-col gap-y-4"></div>
+
+            <!-- Modals Section -->
+
+            <div class="js-edit-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden dark:bg-[#333]">
+                 <button class="js-edit-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal">
+                    <span class="fa fa-xmark"></span>
+                </button>
+
+                <div class="js-edit-toast fixed pointer-events-none top-10 transition-opacity duration-300 border-2 flex items-center justify-center py-3 rounded-[12px] min-w-[350px] bg-[#ddd] text-[#333] dark:text-[#ddd] dark:bg-[#333] opacity-[0]">
+                    <span class="js-edit-toast-text"></span>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <span class="text-[20px] select-none dark:text-[#ddd]">Edit detail</span>
+                    <select id="edit_select" class="py-[10px] px-2 outline-[dodgerblue] rounded-[10px] dark:text-[#ddd]">
+                    <option class="dark:bg-[#222]" value="no_selected" selected disabled>No selected</option>
+                    <option class="dark:bg-[#222]" value="name">Name</option>
+                    <option class="dark:bg-[#222]" value="year">Year</option>
+                    <option class="dark:bg-[#222]" value="country">Country</option>
+                    <option class="dark:bg-[#222]" value="generation">Generation</option>
+                    <option class="dark:bg-[#222]" value="trim">Trim</option>
+                    <option class="dark:bg-[#222]" value="colorName">Color</option>
+                    <option class="dark:bg-[#222]" value="category">Category</option>
+                    <option class="dark:bg-[#222]" value="doorCount">Door count</option>
+                    <option class="dark:bg-[#222]" value="seatCount">Seat count</option>
+                    <option class="dark:bg-[#222]" value="maxSpeed">Max speed</option>
+                    <option class="dark:bg-[#222]" value="acceleration">Acceleration</option>
+                    <option class="dark:bg-[#222]" value="engine">Engine</option>
+                    <option class="dark:bg-[#222]" value="horsepower">Horsepower</option>
+                    <option class="dark:bg-[#222]" value="fuelType">Fuel type</option>
+                    <option class="dark:bg-[#222]" value="fuelConsumption">Fuel Consumption</option>
+                    <option class="dark:bg-[#222]" value="description">Description</option>
+                    </select>
+                    <select id="edit_fuel_select" class="py-[10px] px-2 outline-[dodgerblue] rounded-[10px] dark:text-[#ddd]" hidden>
+                    <option class="dark:bg-[#222]" value="no_selected" selected disabled>Consumption</option>
+                    <option class="dark:bg-[#222]" value="city">City</option>
+                    <option class="dark:bg-[#222]" value="highway">Highway</option>
+                    <option class="dark:bg-[#222]" value="combined">Combined</option>
+                    </select>
+                    <input type="text" id="edit_fuel_consumption_input" placeholder="Please first select consumption" class="py-[10px] px-2 rounded-[10px] outline-[dodgerblue] dark:text-[#ddd]" disabled hidden>
+                    <input type="text" id="edit_input" class="py-[10px] px-2 rounded-[10px] outline-[dodgerblue] dark:text-[#ddd]" placeholder="Please first select">
+                    <button id="edit_button" class="bg-[dodgerblue] text-white py-[10px] rounded-[10px] cursor-pointer transition-opacity hover:opacity-[0.80] shadow-2xl">
+                        Change
+                    </button>
+                </div>
+
+            </div>
 
             <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden dark:bg-[#333]">
                 <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal">
                     <span class="fa fa-xmark"></span>
                 </button>
-
                 <div class="js-details-skeleton-box"></div>
+                <div class="js-details-box transition-all duration-500"></div>
+            </div>
 
-                <div class="js-details-box">
-                    
+            <div class="js-add-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center flex dark:bg-[#333]">
+                <button class="js-add-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal"><span class="fa fa-xmark"></span></button>
+
+                <div class="grid grid-rows-2 grid-cols-2 gap-3 max-w-[1440px] w-full px-10" >
+                    <span class="col-span-full text-[22px] relative top-4 text-[#0009]">Add new car</span>
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="name" data-input="name">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="trim" data-input="trim">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="generation" data-input="generation">
+                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="year" data-input="year">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="color" data-input="color">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="color name" data-input="colorName">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="category" data-input="category">
+                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="door count" data-input="doorCount">
+                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="seat count" data-input="seatCount">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="max-speed" data-input="maxSpeed">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="acceleration" data-input="acceleration">
+                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="engine" data-input="engine">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="horsepower" data-input="horsepower">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="country" data-input="country">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="fuelType" data-input="fuelType">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="city consumption" data-input="cityConsumption">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="highway consumption" data-input="highwayConsumption">
+                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="combined consumption" data-input="combinedConsumption">
+                    <textarea class="js-data-add-input outline-[dodgerblue] w-full col-span-full rounded-[8px] py-2 px-3" aria-label="description" data-input="description"></textarea>
+                    <button class="js-data-add-button col-span-full w-full flex justify-center items-center bg-[dodgerblue] py-3 rounded-[12px] text-white cursor-pointer hover:opacity-[0.80] transition-opacity duration-300">
+                        <span>
+                            Add car
+                        </span>
+                    </button>
                 </div>
 
             </div>
+
+            <div class="js-elements-nf fixed bottom-0 left-0 w-full bg-white justify-center items-center h-[80%] flex pointer-events-none opacity-[0]">
+                <span class="text-[22px]">Elemens not found :(</span>
+            </div>
+
+
         </div>
         </div>
     </main>
 
-<script src="./js/main_app.mjs" type="module"></script>
+<script src="./js/main_app.mjs" type="module" defer></script>
 </body>
 </html>

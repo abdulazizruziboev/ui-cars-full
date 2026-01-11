@@ -6,7 +6,8 @@ import {
     el_error
 } from "./dom_elements.mjs";
 
-fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${location.search.slice(4)}`)
+
+fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${new URLSearchParams(location.search).get("id")}`)
 .then(res=>res.json())
 .then(
     res=>{

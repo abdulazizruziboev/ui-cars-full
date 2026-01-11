@@ -8,7 +8,14 @@ el_dom_header = document.querySelector(".js-dom-header"),
 el_details_skeleton = document.querySelector(".js-details-skeleton-template"),
 el_details_skeleton_box = document.querySelector(".js-details-skeleton-box"),
 el_details_modal = document.querySelector(".js-detail-modal"),
-el_details_modal_close = document.querySelector(".js-modal-close")
+el_details_modal_close = document.querySelector(".js-modal-close"),
+el_edit_modal = document.querySelector(".js-edit-modal"),
+el_edit_modal_close = document.querySelector(".js-edit-modal-close"),
+el_edit_select = document.querySelector("#edit_select"),
+el_edit_input = document.querySelector("#edit_input"),
+el_edit_button = document.querySelector("#edit_button"),
+el_fuel_select = document.querySelector("#edit_fuel_select"),
+el_fuel_input = document.querySelector("#edit_fuel_consumption_input");
 export {
     el_skeleton_template,
     el_items_template,
@@ -20,5 +27,12 @@ export {
     el_details_skeleton,
     el_details_skeleton_box,
     el_details_modal,
-    el_details_modal_close
+    el_details_modal_close,
+    el_edit_modal,
+    el_edit_modal_close,
+    el_edit_select,
+    el_edit_input,
+    el_edit_button,
+    el_fuel_select,
+    el_fuel_input
 };
