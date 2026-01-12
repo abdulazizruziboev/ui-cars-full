@@ -32,7 +32,7 @@ function elemetsNotFound(bool) {
 }
 
 function mainReuqests() {
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=2")
+    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
     .then((res)=>res.json())
     .then(
         (res)=>{
