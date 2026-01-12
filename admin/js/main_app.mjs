@@ -21,12 +21,24 @@ import {
 
 let editID=null;
 
+function elemetsNotFound(bool) {
+    if(bool==true) {
+        document.querySelector(".js-elements-nf").classList.remove("opacity-[0]");
+        document.querySelector(".js-elements-nf").classList.add("opacity-[1]");
+    } else if(bool==false) {
+        document.querySelector(".js-elements-nf").classList.remove("opacity-[1]");
+        document.querySelector(".js-elements-nf").classList.add("opacity-[0]");
+    }
+}
+
 function mainReuqests() {
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
+    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=2")
     .then((res)=>res.json())
     .then(
         (res)=>{
-            console.log(res.data);
+            if(res.data==null||res.data=='') {
+                elemetsNotFound(true);
+            }
             itemsUI(res.data);
         }
     );
@@ -53,8 +65,23 @@ function itemsUI(data) {
     });
     });
 
+    function deleteToast(text,color) {
+        document.querySelector(".js-delete-toast-text").textContent=text;
+        document.querySelector(".js-delete-toast").style.cssText=`
+        box-shadow: inset 0px 0px 10px ${color};
+        border-color: ${color};
+        `;
+        document.querySelector(".js-delete-toast").classList.remove("opacity-[0]");
+        document.querySelector(".js-delete-toast").classList.add("opacity-[1]");
+        setTimeout(()=>{
+        document.querySelector(".js-delete-toast").classList.remove("opacity-[1]");
+        document.querySelector(".js-delete-toast").classList.add("opacity-[0]");
+        },2000)
+    }
+
     document.querySelectorAll(".js-delete-button").forEach(el=>{
     el.addEventListener("click",(evt)=>{
+    deleteToast("Request sending","#00bafe");
     let card = evt.target.closest(".js-item-card");
     card.style.cssText = 
     `
@@ -64,7 +91,8 @@ function itemsUI(data) {
     let id = evt.target.getAttribute("data-delete-id");
     evt.target.style.cssText = 
     `opacity:0.75;pointer-events:none;`;
-    fetch("https://json-api.uz/api/project/fn44-amaliyot/cars/"+id,{
+    setTimeout(()=>{
+            fetch("https://json-api.uz/api/project/fn44-amaliyot/cars/"+id,{
         method:"DELETE"
     })
     .then(res=>res.text())
@@ -75,20 +103,31 @@ function itemsUI(data) {
             transition: box-shadow 1s ease-in-out;
             box-shadow: inset 0px 0px 40px #00ff11ae;
             `;
+            setTimeout(() => {
+                deleteToast("Deleted successfully","#00ff11ae");
+            }, 500);
             setTimeout(()=>{
             card.style.cssText = 
             `
             transition: opacity 1s ease-in-out;
             opacity:0;
             `;
+            evt.target.closest(".js-item-card").remove()
             },1000)
-            setTimeout(()=>evt.target.closest(".js-item-card").remove(),2000);
+            setTimeout(()=>{
+                if(document.querySelectorAll(".js-item-card").length==0) {
+                    elemetsNotFound(true)
+                }
+            },2000);
         } else if(res!="deleted successfully"||!(res.ok)) {
             card.style.cssText = 
             `
             transition: box-shadow 1s ease-in-out;
             box-shadow: inset 0px 0px 40px #ff0000ae;
             `;
+            setTimeout(() => {
+            deleteToast("Error... try again","#ff0000ae");
+            }, 500);
             setTimeout(()=>{
             card.style.cssText = 
             `
@@ -101,6 +140,7 @@ function itemsUI(data) {
             },1000)
         }
     })
+    },1200)
     });
     });
 
@@ -227,9 +267,11 @@ el_edit_select.addEventListener("change",(evt)=>{
     }
     
     if(evt.target.value=="description"){
-        el_fuel_input.style.cssText=`
-        resize: vertical;
-        `
+        el_edit_input.classList.add("resize-y");
+        alert("x");
+    } else if(evt.target.value!="description"){
+        el_edit_input.classList.remove("resize-y");
+        alert("x");
     }
 })
 
@@ -388,22 +430,22 @@ let arr2=[];
 document.querySelectorAll(".js-data-add-input").forEach(el=>{
     if(el.value.trim()=='') {
         arr.push(el.ariaLabel);
-        arr2.push(el.value);   
+        arr2.push(0);   
         setTimeout(()=>{
         el.classList.add("border-orange-600");
-        el.classList.add("bg-red-200");
+        el.classList.add("bg-red-200","dark:bg-[#82000d]");
         },250)
         setTimeout(()=>{
         el.classList.remove("border-orange-600");
-        el.classList.remove("bg-red-200");
+        el.classList.remove("bg-red-200","dark:bg-[#82000d]");
         },500)
         setTimeout(()=>{
         el.classList.add("border-orange-600");
-        el.classList.add("bg-red-200");
+        el.classList.add("bg-red-200","dark:bg-[#82000d]");
         },750)
         setTimeout(()=>{
         el.classList.remove("border-orange-600");
-        el.classList.remove("bg-red-200");
+        el.classList.remove("bg-red-200","dark:bg-[#82000d]");
         },1000)
         text=`Please field ${arr[0]} input!`;addToast(text,"#ff0000d6")
     }
@@ -469,3 +511,4 @@ document.querySelector(".js-add-modal-open")
     document.querySelector(".js-add-modal").classList.add("flex");
     document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
 })
+

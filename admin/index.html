@@ -152,6 +152,14 @@
                 </div>
             </template>
 
+            <!-- Toast Box -->
+
+            <div class="fixed flex justify-center items-center w-full min-h-[100px] top-0 left-0 z-[3] pointer-events-none">
+                <div class="js-delete-toast pointer-events-none transition-opacity duration-300 border-2 flex items-center justify-center py-3 rounded-[12px] min-w-[350px] bg-[#fff] text-[#333] dark:text-[#ddd] dark:bg-[#333] opacity-[0]">
+                    <span class="js-delete-toast-text">Request sending...</span>
+                </div>
+            </div>
+
             <!-- Main Box Section -->
 
             <div class="flex items-center justify-between pb-10">
@@ -227,8 +235,8 @@
                 </div>
 
 
-                <div class="grid grid-rows-2 grid-cols-2 gap-3 max-w-[1440px] w-full px-10" >
-                    <span class="col-span-full text-[22px] relative top-4 text-[#0009]">Add new car</span>
+                <div class="grid grid-rows-2 grid-cols-2 gap-3 max-w-[1440px] w-full px-10 dark:text-white" >
+                    <span class="col-span-full text-[22px] relative top-4 text-[#0009] dark:text-[#ddd]">Add new car</span>
                     <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="name" data-input="name">
                     <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="trim" data-input="trim">
                     <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="generation" data-input="generation">
