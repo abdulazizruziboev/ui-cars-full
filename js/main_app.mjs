@@ -21,7 +21,13 @@ function mainRequests() {
     })
     .then((res)=>{
         skeletonUI(false);
-        if(res.data==null) {el_error_box.style.display="flex"};
+        if(res.data==null) {
+            document.querySelector(".js-elements-nf").classList.remove("opacity-[0]");
+            document.querySelector(".js-elements-nf").classList.add("opacity-[1]");
+        } else {
+            document.querySelector(".js-elements-nf").classList.remove("opacity-[1]");
+            document.querySelector(".js-elements-nf").classList.add("opacity-[0]");    
+        };
         cardsUI(res.data, res.total);
     }).catch(()=>el_error_box.style.display="flex");
 }
