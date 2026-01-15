@@ -477,3 +477,4 @@ function editCarInputFiller(id) {
         elEditCarForm.querySelector(`[name="combinedConsumption"]`).value=data.fuelConsumption.combined.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.combined.replace(" L/100km",""):"No data";
     }
 }
+// ####################################################################################
