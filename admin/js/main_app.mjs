@@ -11,15 +11,8 @@ import {
     el_details_modal,
     el_details_modal_close,
     el_edit_modal,
-    el_edit_modal_close,
-    el_edit_select,
-    el_edit_input,
-    el_edit_button,
-    el_fuel_select,
-    el_fuel_input
+    el_edit_modal_close
 } from "./dom_elements.mjs";
-
-let editID=null;
 
 function elemetsNotFound(bool) {
     if(bool==true) {
@@ -31,7 +24,15 @@ function elemetsNotFound(bool) {
     }
 }
 
-function mainReuqests() {
+el_edit_modal_close.addEventListener("click",()=>{
+    mainRequest();
+    setTimeout(() => {
+    el_edit_modal.classList.remove("flex");
+    el_edit_modal.classList.add("hidden");
+    }, 1200);
+})
+
+function mainRequest() {
     fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
     .then((res)=>res.json())
     .then(
@@ -44,9 +45,10 @@ function mainReuqests() {
     );
 }
 
-mainReuqests();
+mainRequest();
 
 function itemsUI(data) {
+    el_items_box.innerHTML=null;
     skeletonUI(false);
     data.forEach((el)=>{
         let clone = el_items_template.cloneNode(true).content;
@@ -144,26 +146,111 @@ function itemsUI(data) {
     });
     });
 
-    document.querySelectorAll(".js-edit-button").forEach(el=>{
-        el.addEventListener("click",(evt)=>{
-            editID=Number(evt.target.getAttribute("data-edit-id"));
-            el_edit_modal.classList.remove("hidden");
-            el_edit_modal.classList.add("flex");
-            if(el_edit_select.value=="no_selected") {
-            el_edit_input.disabled=true;
-            }
-        });
-    })
-
     document.querySelectorAll(".js-details-button").forEach(el=>{
        el.closest(".js-item-card").setAttribute("data-card-id",el.getAttribute("data-detail-id"))
     });
 
+
+    document.querySelectorAll(".js-edit-button").forEach(el=>{
+        el.addEventListener("click",(evt)=>{
+            document.getElementById("editCarDetailsForm")
+            .querySelectorAll("input, textarea")
+            .forEach(el=>el.value='');            
+            el_edit_modal.classList.remove("hidden");
+            el_edit_modal.classList.add("flex");
+            document.getElementById("editCarDetailsForm")
+            .setAttribute("data-car-id",evt.target.getAttribute("data-edit-id"));
+            editCarInputFiller(evt.target.getAttribute("data-edit-id"));
+        });
+    })
 };
+
+document.getElementById("editCarDetailsForm").addEventListener("submit",(evt)=>evt.preventDefault())
+
+document.getElementById("editCarDetailsFormSubmit")
+.addEventListener("click",()=>{
+function editToast(textz="Request sending...",color) {
+let toast=document.querySelector(".js-edit-toast");
+let toastText=document.querySelector(".js-edit-toast-text");
+toastText.textContent=textz;
+toast.style.cssText=`
+box-shadow: inset 0px 0px 20px ${color};
+border-color: ${color};
+`;
+toast.classList.remove("opacity-[0]");
+toast.classList.add("opacity-[1]");
+setTimeout(()=>{
+toast.classList.remove("opacity-[1]");
+toast.classList.add("opacity-[0]");
+},4000)
+}
+let emptyInputs=[];
+document.querySelector("#editCarDetailsForm").querySelectorAll("input, textarea")
+.forEach(el=>{
+    if(el.value.trim()=='') {
+        emptyInputs.push(el.ariaLabel)
+    }
+})
+
+if(emptyInputs.length!=0) {
+    document.querySelector("#editCarDetailsForm").querySelector(`[name="${emptyInputs[0]}"]`).focus()
+    editToast(`Please fill ${emptyInputs[0]} input`,"#ff637d")
+} else {
+    editToast("Request sending...","#00bafe")
+    document.querySelector("#editCarDetailsForm")
+    .addEventListener("submit",(evt)=>{
+        let id = evt.target.getAttribute("data-car-id");
+        let formDatas = new FormData(document.querySelector("#editCarDetailsForm")) ;
+        const reqObj = {
+            name: formDatas.get("name"),
+            trim: formDatas.get("trim"),
+            year: formDatas.get("year"),
+            generation: formDatas.get("generation"),
+            country: formDatas.get("country"),
+            category: formDatas.get("category"),
+            color: formDatas.get("color"),
+            colorName: formDatas.get("colorName"),
+            doorCount: formDatas.get("doorCount"),
+            seatCount: formDatas.get("seatCount"),
+            maxSpeed: formDatas.get("maxSpeed"),
+            acceleration: formDatas.get("acceleration"),
+            engine: formDatas.get("engine"),
+            horsepower: formDatas.get("horsepower"),
+            fuelType: formDatas.get("fuelType"),
+            description: formDatas.get("description"),
+            fuelConsumption: {
+                city: formDatas.get("cityConsumption"),
+                highway: formDatas.get("highwayConsumption"),
+                combined: formDatas.get("combinedConsumption"),
+            }
+        }
+        fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(reqObj)
+        })
+        .then((res)=>{
+                if(res.ok){
+                    editToast(`Car successfuly edited!`,"#00d390")
+                    editCarInputFiller(id)
+                } else {
+                    editToast(`Error... try again!`,"#ff637d");
+                    editCarInputFiller(id)
+                }
+        }).catch((err)=>{
+        console.log(err);
+        editToast(`Opps server error... try again later!`,"#ff3636ff");
+         })
+    })
+}
+});
 
 skeletonUI(true,20);
 function skeletonUI(bool,len) {
     if(bool==true){
+        el_skeleton_box.innerHTML="";
          Array.from({length:len}).forEach((el)=>{
             let clone=el_skeleton_template.cloneNode(true).content;
             el_skeleton_box.append(clone);
@@ -229,179 +316,6 @@ el_details_modal_close.addEventListener("click",()=>{
     el_details_modal.classList.remove("flex");
     el_details_modal.classList.add("hidden");
 });
-
-el_edit_modal_close.addEventListener("click",()=>{
-    el_edit_modal.classList.remove("flex");
-    el_edit_modal.classList.add("hidden");
-});
-
-if(el_edit_select.value=="no_selected") {
-el_edit_input.disabled=true;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
-
-el_edit_select.addEventListener("change",(evt)=>{
-    if(evt.target.value!="no_selected") {
-    el_edit_input.disabled=false;
-    el_edit_input.placeholder=`Please enter value`;
-    }
-    /* *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */ 
-    if(evt.target.value=="fuelConsumption") {
-        el_fuel_select.hidden=false;
-        el_fuel_select.disabled=false;
-        el_fuel_input.hidden=false;
-        el_edit_input.hidden=true;
-        el_edit_button.setAttribute("data-type-nested","true");
-    } else {
-        el_edit_button.setAttribute("data-type-nested","false");
-        el_fuel_select.hidden=true;
-        el_fuel_select.disabled=true;
-        el_fuel_input.hidden=true;
-        el_edit_input.disabled=false;
-        el_edit_input.hidden=false;
-    }
-
-    if(el_fuel_select.value=="no_selected") {
-        el_fuel_input.disabled=true;
-    }
-    
-    if(evt.target.value=="description"){
-        el_edit_input.classList.add("resize-y");
-        alert("x");
-    } else if(evt.target.value!="description"){
-        el_edit_input.classList.remove("resize-y");
-        alert("x");
-    }
-})
-
-el_fuel_select.addEventListener("change",(evt)=>{
-    if(evt.target.value=="no_selected") {
-            el_fuel_input.disabled=true;
-    } else {
-            el_fuel_input.disabled=false;
-            el_fuel_input.placeholder=`Please enter ${evt.target.value} consumption`
-    }
-});
-
-function editToast(text,color,field_bool) {
-    document.querySelector(".js-edit-toast-text").textContent=text;
-    document.querySelector(".js-edit-toast").style.cssText=`
-    box-shadow: inset 0px 0px 10px ${color};
-    border-color: ${color};
-    `;
-    document.querySelector(".js-edit-toast").classList.remove("opacity-[0]");
-    document.querySelector(".js-edit-toast").classList.add("opacity-[1]");
-    if(field_bool==true) {
-    setTimeout(()=>{
-        el_fuel_input.classList.add("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.add("bg-red-200","dark:bg-[#555]")
-    }
-        ,250)
-    setTimeout(()=>{
-        el_fuel_input.classList.remove("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.remove("bg-red-200","dark:bg-[#555]")
-    }
-        ,500)
-    setTimeout(()=>{
-        el_fuel_input.classList.add("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.add("bg-red-200","dark:bg-[#555]")
-    }
-        ,750)
-    setTimeout(()=>{
-        el_fuel_input.classList.remove("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.remove("bg-red-200","dark:bg-[#555]")
-    }
-        ,1000)
-    setTimeout(()=>{
-        el_fuel_input.classList.add("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.add("bg-red-200","dark:bg-[#555]")
-    }
-        ,1250)
-    setTimeout(()=>{
-        el_fuel_input.classList.remove("bg-red-200","dark:bg-[#555]")
-        el_edit_input.classList.remove("bg-red-200","dark:bg-[#555]")
-    }
-        ,1500)
-    }
-    setTimeout(()=>{
-    document.querySelector(".js-edit-toast").classList.remove("opacity-[1]");
-    document.querySelector(".js-edit-toast").classList.add("opacity-[0]");
-    },2000)
-}
-
-el_edit_button.addEventListener("click",()=>{
-if(el_edit_button.getAttribute("data-type-nested")=="false") {
-    if(el_edit_input.value.trim()=='') {
-    editToast("Please fill in all fields.","#fcb900",true)
-    } else {    
-        editToast("Request Sending... Please wait","#00cafcff")
-        fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editID}`
-            ,{
-                method:"PATCH",
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({[el_edit_select.value.trim()]:el_edit_input.value.trim()})
-            }
-        )
-        .then((res)=>{
-            if(res.ok) {
-                editToast("Detail successfully changed.","#00d390",false)
-                el_edit_select.value='no_selected';
-                el_edit_input.value='';
-                el_edit_input.disabled=true;
-            }
-        }).catch(()=>{
-                editToast("Error... Try again.","#ff637d",false)
-        })
-    }
-} else if (el_edit_button.getAttribute("data-type-nested")=="true") {
-if(el_fuel_input.value.trim()=='') {
-    editToast("Please fill in all fields.","#fcb900",true)
-} else {
-    editToast("Request Sending... Please wait","#00cafcff",false)
-    let responseObj=null;
-    fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editID}`)
-    .then(res=>res.json())
-    .then(res=>{
-        responseObj={...res.fuelConsumption}
-        nextRes()
-    });
-    function nextRes() {
-        responseObj[el_fuel_select.value.trim()]=`${el_fuel_input.value.trim()} L/100km`;
-        console.log({"fuelConsumption":{...responseObj}});
-        fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editID}`
-            ,{
-                method:"PATCH",
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({"fuelConsumption":{...responseObj}})
-            }
-        )
-    .then((res)=>{
-        if(res.ok) {
-            editToast("Detail successfully changed.","#00d390",false)
-            el_edit_select.value='no_selected';
-            el_edit_input.value='';
-            el_edit_input.disabled=true;
-            el_edit_input.hidden=false;
-            el_fuel_select.value='no_selected';
-            el_fuel_select.disabled=true;
-            el_fuel_select.hidden=true;
-            el_fuel_input.value='';
-            el_fuel_input.disabled=true;
-            el_fuel_input.hidden=true;
-        }
-    }).catch(()=>{
-            editToast("Error... Try again.","#ff637d",false)
-    })    
-    }
-}
-}
-})
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 let toast = document.querySelector(".js-add-toast");
@@ -491,6 +405,7 @@ fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
         if(res.ok) {
             addToast("Car successfuly added","#00d390")
             document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
+            document.querySelector('[data-input="color"]').value='#000000';
         }
     }).catch((err)=>{
         addToast("Error... try again","#d30000ff");
@@ -502,8 +417,9 @@ document.querySelector(".js-add-modal-close")
 .addEventListener("click",()=>{
     document.querySelector(".js-add-modal").classList.remove("flex");
     document.querySelector(".js-add-modal").classList.add("hidden");
-    document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
+    document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='',document.querySelector('[data-input="color"]').value='#000000');
 })
+
 
 document.querySelector(".js-add-modal-open")
 .addEventListener("click",()=>{
@@ -512,3 +428,52 @@ document.querySelector(".js-add-modal-open")
     document.querySelectorAll(".js-data-add-input").forEach(el=>el.value='');
 })
 
+
+function editCarInputFiller(id) {
+    editFormSkeleton(true)
+    function editFormSkeleton(bool) {
+        if(bool==true) {
+        document.querySelector(".js-edit-template-box").innerHTML=null;
+        document.querySelector(".js-edit-form").classList.remove("inline-block");
+        document.querySelector(".js-edit-form").classList.add("hidden");
+        let clone=document.querySelector(".js-edit-skeleton-template").cloneNode(true).content;
+        document.querySelector(".js-edit-template-box").append(clone);
+        } else if(bool==false) {
+        document.querySelector(".js-edit-template-box").innerHTML=null;
+        }
+    }
+    fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${id}`)
+    .then(res=>res.json())
+    .then(res=>{
+        setTimeout(()=>editFormSkeleton(false),1000);
+        setTimeout(()=>x(res),2000)
+    });
+    function x(data) {
+        document.querySelector(".js-edit-template-box").innerHTML=null;
+        document.querySelector(".js-edit-form").classList.remove("hidden");
+        document.querySelector(".js-edit-form").classList.add("inline-block");
+        let elEditCarForm=document.getElementById("editCarDetailsForm");
+        elEditCarForm.querySelector(`[name="name"]`).value=data.name?data.name:"No data";
+        elEditCarForm.querySelector(`[name="trim"]`).value=data.trim?data.trim:"No data";
+        elEditCarForm.querySelector(`[name="year"]`).value=data.year?data.year:"No data";
+        elEditCarForm.querySelector(`[name="year"]`).value=data.year?data.year:"No data";
+        elEditCarForm.querySelector(`[name="generation"]`).value=data.generation?data.generation:"No data";
+        elEditCarForm.querySelector(`[name="country"]`).value=data.country?data.country:"No data";
+        elEditCarForm.querySelector(`[name="category"]`).value=data.category?data.category:"No data";
+        elEditCarForm.querySelector(`[name="colorName"]`).value=data.colorName?data.colorName:"No data";
+        elEditCarForm.querySelector(`[name="doorCount"]`).value=data.doorCount?data.doorCount:"No data";
+        elEditCarForm.querySelector(`[name="seatCount"]`).value=data.seatCount?data.seatCount:"No data";
+        elEditCarForm.querySelector(`[name="horsepower"]`).value=data.horsepower?data.horsepower:"No data";
+        elEditCarForm.querySelector(`[name="fuelType"]`).value=data.fuelType?data.fuelType:"No data";
+        elEditCarForm.querySelector(`[name="engine"]`).value=data.engine?data.engine:"No data";
+        elEditCarForm.querySelector(`[name="description"]`).value=data.description?data.description:"No data";
+        /* Splits */
+        elEditCarForm.querySelector(`[name="color"]`).value=data.color?data.color:"#000000";
+        elEditCarForm.querySelector(`[name="maxSpeed"]`).value=data.maxSpeed.replaceAll(/[ a-z \s+ / ]/g,"")?data.maxSpeed.replaceAll(/[ a-z \s+ / ]/g,""):"No data";
+        elEditCarForm.querySelector(`[name="acceleration"]`).value=data.acceleration.replace("0-100 km/h: ","").replace("s","")
+        ?data.acceleration.replace("0-100 km/h: ","").replace("s",""):"No data";
+        elEditCarForm.querySelector(`[name="cityConsumption"]`).value=data.fuelConsumption.city.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.city.replace(" L/100km",""):"No data";
+        elEditCarForm.querySelector(`[name="highwayConsumption"]`).value=data.fuelConsumption.highway.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.highway.replace(" L/100km",""):"No data";
+        elEditCarForm.querySelector(`[name="combinedConsumption"]`).value=data.fuelConsumption.combined.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.combined.replace(" L/100km",""):"No data";
+    }
+}
