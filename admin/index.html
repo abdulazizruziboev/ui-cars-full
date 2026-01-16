@@ -2,12 +2,13 @@
 <html lang="en" class="h-[100vh] dark:bg-[#222]">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="/src/output.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Cars - Panel</title>
@@ -18,9 +19,27 @@
                 <span class="text-[20px]">
                     Admin Panel
                 </span>
-                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white " >
+                <div class="flex items-center gap-2">
+                <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white cursor-pointer">
+                    <span class="fas fa-gear"></span>
+                </div>
+                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm dark:bg-[#333]">
+                        <li>
+                            <a class="js-theme-btns js-theme-btns-system" data-theme-value="system">System</a>
+                        </li>
+                        <li>
+                            <a class="js-theme-btns js-theme-btns-light" data-theme-value="light">Light</a>
+                        </li>
+                        <li>
+                            <a class="js-theme-btns js-theme-btns-dark" data-theme-value="dark">Dark</a>
+                        </li>
+                </ul>
+                </div>
+                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white">
                         <span class="fa fa-home"></span>
                  </a>
+                </div>
         </div>
     </header>
 
@@ -321,5 +340,6 @@
     </main>
 
 <script src="./js/main_app.mjs" type="module" defer></script>
+    <script src="/global-theme-js/main_app.js"></script>
 </body>
 </html>
