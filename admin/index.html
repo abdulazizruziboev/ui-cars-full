@@ -31,25 +31,27 @@
             <div class="w-full px-10 py-5">   
 
             <template class="js-skeleton-template">
-                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:border-[#ddd3]">
-                    <div class="flex gap-5 items-center">
-                        <span class="skeleton min-h-[75%] min-w-[35px] bg-[#0001] dark:bg-[#ddd3]"></span>
-                    <span class="h-[100%] inline-block w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span class="skeleton min-h-[75%] min-w-[120px] bg-[#0001] dark:bg-[#ddd3]"></span>
-                    <span>
+                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-3 sm:flex-row sm:gap-0">
+                <div class="flex flex-col gap-2 sm:gap-5 items-start  sm:items-center w-full sm:max-w-[275px] sm:justify-between sm:flex-row">
+                    <span class="min-w-[60px] max-w-[125px] text-start w-auto inline-block gap-1 skeleton min-h-[22px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="max-w-[170px] w-full text-start skeleton inline-block min-h-[25px] bg-[#0003] dark:bg-[#ddd3]">
                     </span>
                     </div>
-                    <div class="flex gap-2">
-                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
-                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
-                    <span class="skeleton min-h-[60%] min-w-[50px] bg-[#0001] dark:bg-[#ddd3]"></span>
+                    <div class="flex gap-x-2 relative top-2">
+                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        </span>
+                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        </span>
+                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        </span>
                     </div>
-            </div>
+                </div>
             </template>
 
             <template class="js-card-template">
-            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333]">
-                    <div class="flex gap-5 items-center min-w-[50%] max-w-[520px] justify-between">
+            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-2 sm:flex-row sm:gap-0">
+                    <div class="flex flex-col sm:gap-5 items-start  sm:items-center sm:min-w-[50%] max-w-[520px] sm:justify-between sm:flex-row">
                         <span class="min-w-[60px] max-w-[125px] text-start w-auto flex gap-1">
                         ID:
                         <span class="js-item-id text-elipse">1</span>
@@ -61,13 +63,13 @@
                     </span>
                     </div>
                     <div class="flex gap-x-2 relative top-2">
-                        <button class="js-details-button bg-[dodgerblue] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
+                        <button class="js-details-button bg-[dodgerblue] w-full sm:w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Full About">
                             <svg class="pointer-events-none" width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                         </button>
-                        <button class="js-edit-button bg-[orange] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Edit Current Item">
+                        <button class="js-edit-button bg-[orange] w-full sm:w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Edit Current Item">
                             <span class="fas fa-pen-to-square pointer-events-none"></span>
                         </button>
-                        <button class="js-delete-button bg-[red] w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
+                        <button class="js-delete-button bg-[red] w-full sm:w-[40px] h-[40px] flex justify-center items-center rounded-[12px] text-white cursor-pointer tooltip tooltip-top" data-tip="Delete Current Item">
                             <span class="fa fa-trash pointer-events-none"></span>
                         </button>
                     </div>
@@ -178,8 +180,8 @@
                 </button>
             </div>
 
-            <div class="js-skeleton-box flex flex-col gap-y-4"></div>
-            <div class="js-items-box flex flex-col gap-y-4"></div>
+            <div class="js-skeleton-box gap-4 grid lg:grid-cols-2"></div>
+            <div class="js-items-box gap-4 grid lg:grid-cols-2"></div>
 
             <!-- Modals Section -->
 
@@ -195,7 +197,7 @@
                 </div>
                 </div>
 
-                <div class="js-edit-template-box w-full"></div>
+                <div class="js-edit-template-box w-full max-w-[900px]"></div>
                 <div class="js-edit-form px-4 hidden">
                     <span class="text-[22px] dark:text-white">Edit car details</span>
                     <form class="grid grid-cols-2 gap-4 w-full dark:text-white" id="editCarDetailsForm">
@@ -222,7 +224,7 @@
                             s
                         </label>
                         <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-engine" name="engine" aria-label="engine">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" min="1" max="200" placeholder="Please enter car-horse-power" name="horsepower" aria-label="horsepower">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-horse-power" name="horsepower" aria-label="horsepower">
                         <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-fuel-type" name="fuelType" aria-label="fuel-type">
                         <label for="cityConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
                             <input class="w-full grow " type="text" placeholder="Please enter car-city-consumption" name="cityConsumption" id="cityConsumption" aria-label="city-consumption">

@@ -34,7 +34,7 @@ el_edit_modal_close.addEventListener("click",()=>{
 
 function mainRequest() {
     fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
-    .then((res)=>res.json())
+    .then((res)=>res.json())    
     .then(
         (res)=>{
             if(res.data==null||res.data=='') {
@@ -202,26 +202,26 @@ if(emptyInputs.length!=0) {
         let id = evt.target.getAttribute("data-car-id");
         let formDatas = new FormData(document.querySelector("#editCarDetailsForm")) ;
         const reqObj = {
-            name: formDatas.get("name"),
-            trim: formDatas.get("trim"),
-            year: formDatas.get("year"),
-            generation: formDatas.get("generation"),
-            country: formDatas.get("country"),
-            category: formDatas.get("category"),
-            color: formDatas.get("color"),
-            colorName: formDatas.get("colorName"),
-            doorCount: formDatas.get("doorCount"),
-            seatCount: formDatas.get("seatCount"),
-            maxSpeed: formDatas.get("maxSpeed"),
-            acceleration: formDatas.get("acceleration"),
-            engine: formDatas.get("engine"),
-            horsepower: formDatas.get("horsepower"),
-            fuelType: formDatas.get("fuelType"),
-            description: formDatas.get("description"),
+            name: formDatas.get("name").trim(),
+            trim: formDatas.get("trim").trim(),
+            year: formDatas.get("year").trim(),
+            generation: formDatas.get("generation").trim(),
+            country: formDatas.get("country").trim(),
+            category: formDatas.get("category").trim(),
+            color: formDatas.get("color").trim(),
+            colorName: formDatas.get("colorName").trim(),
+            doorCount: formDatas.get("doorCount").trim(),
+            seatCount: formDatas.get("seatCount").trim(),
+            maxSpeed: formDatas.get("maxSpeed").trim() + "km/h",
+            acceleration: "0-100 km/h: " + formDatas.get("acceleration").trim() + "s",
+            engine: formDatas.get("engine").trim(),
+            horsepower: formDatas.get("horsepower").trim(),
+            fuelType: formDatas.get("fuelType").trim(),
+            description: formDatas.get("description").trim(),
             fuelConsumption: {
-                city: formDatas.get("cityConsumption"),
-                highway: formDatas.get("highwayConsumption"),
-                combined: formDatas.get("combinedConsumption"),
+                city: formDatas.get("cityConsumption").trim() + "L/100km",
+                highway: formDatas.get("highwayConsumption").trim() + "L/100km",
+                combined: formDatas.get("combinedConsumption").trim() + "L/100km",
             }
         }
         fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${id}`,{
@@ -463,7 +463,7 @@ function editCarInputFiller(id) {
         elEditCarForm.querySelector(`[name="colorName"]`).value=data.colorName?data.colorName:"No data";
         elEditCarForm.querySelector(`[name="doorCount"]`).value=data.doorCount?data.doorCount:"No data";
         elEditCarForm.querySelector(`[name="seatCount"]`).value=data.seatCount?data.seatCount:"No data";
-        elEditCarForm.querySelector(`[name="horsepower"]`).value=data.horsepower?data.horsepower:"No data";
+        elEditCarForm.querySelector(`[name="horsepower"]`).value=data.horsepower?data.horsepower:"0";
         elEditCarForm.querySelector(`[name="fuelType"]`).value=data.fuelType?data.fuelType:"No data";
         elEditCarForm.querySelector(`[name="engine"]`).value=data.engine?data.engine:"No data";
         elEditCarForm.querySelector(`[name="description"]`).value=data.description?data.description:"No data";
@@ -471,10 +471,10 @@ function editCarInputFiller(id) {
         elEditCarForm.querySelector(`[name="color"]`).value=data.color?data.color:"#000000";
         elEditCarForm.querySelector(`[name="maxSpeed"]`).value=data.maxSpeed.replaceAll(/[ a-z \s+ / ]/g,"")?data.maxSpeed.replaceAll(/[ a-z \s+ / ]/g,""):"No data";
         elEditCarForm.querySelector(`[name="acceleration"]`).value=data.acceleration.replace("0-100 km/h: ","").replace("s","")
-        ?data.acceleration.replace("0-100 km/h: ","").replace("s",""):"No data";
-        elEditCarForm.querySelector(`[name="cityConsumption"]`).value=data.fuelConsumption.city.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.city.replace(" L/100km",""):"No data";
-        elEditCarForm.querySelector(`[name="highwayConsumption"]`).value=data.fuelConsumption.highway.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.highway.replace(" L/100km",""):"No data";
-        elEditCarForm.querySelector(`[name="combinedConsumption"]`).value=data.fuelConsumption.combined.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.combined.replace(" L/100km",""):"No data";
+        ?data.acceleration.replace("0-100 km/h: ","").replace("s",""):"0";
+        elEditCarForm.querySelector(`[name="cityConsumption"]`).value=data.fuelConsumption.city.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.city.replace(" L/100km",""):"0";
+        elEditCarForm.querySelector(`[name="highwayConsumption"]`).value=data.fuelConsumption.highway.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.highway.replace(" L/100km",""):"0";
+        elEditCarForm.querySelector(`[name="combinedConsumption"]`).value=data.fuelConsumption.combined.replaceAll(/[ a-z \s+ / ]/g,"")?data.fuelConsumption.combined.replace(" L/100km",""):"0";
     }
 }
 // ####################################################################################
