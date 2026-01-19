@@ -1,0 +1,7 @@
+html[data-theme=dark] .dark\:border-gray {
+    border-color: #ddd;
+}
+
+html[data-theme=dark] .dark\:bg-gray {
+    background-color: #ddd;
+}

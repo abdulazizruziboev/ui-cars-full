@@ -6,37 +6,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
+    <link rel="stylesheet" href="/src/custom.css">
     <link rel="stylesheet" href="/src/output.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Cars - Panel</title>
 </head>
 <body class="font-[Poppins] dark:bg-[#222]">
-    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-[#fff] z-2 dark:bg-[#333] dark:text-white border-b-1 border-[#0005]">
+    <header class="js-dom-header flex justify-center items-center w-full min-h-[100px] top-0 sticky bg-base-200 z-2  border-b-1 dark:border-gray">
         <div class="flex items-center justify-between w-full max-w-[1440px] px-10">
                 <span class="text-[20px]">
                     Admin Panel
                 </span>
                 <div class="flex items-center gap-2">
                 <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white cursor-pointer">
+                <div tabindex="0" role="button" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 hover:opacity-[0.75] transition-all duration-300 text-base-content cursor-pointer">
                     <span class="fas fa-gear"></span>
                 </div>
-                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm dark:bg-[#333]">
-                        <li>
-                            <a class="js-theme-btns js-theme-btns-system" data-theme-value="system">System</a>
-                        </li>
-                        <li>
-                            <a class="js-theme-btns js-theme-btns-light" data-theme-value="light">Light</a>
-                        </li>
-                        <li>
-                            <a class="js-theme-btns js-theme-btns-dark" data-theme-value="dark">Dark</a>
-                        </li>
+                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm border-1 dark:border-gray">
+                        <button class="js-theme-btns cursor-pointer py-2 js-theme-btns-light rounded-[10px]" data-theme-value="light">Light</button>
+                        <button class="js-theme-btns cursor-pointer py-2 js-theme-btns-dark rounded-[10px]" data-theme-value="dark">Dark</button>
                 </ul>
                 </div>
-                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 border-[transparent] hover:border-[#333] transition-all duration-300 dark:text-white dark:bg-[#fff2] dark:border-1 dark:hover:border-white">
+                <a href="/index.html" class="max-w-[75px] bg-[#0004] rounded-[10px] top-10 left-10 flex justify-center items-center text-[20px] p-[15px_20px] text-[#333] border-2 hover:opacity-[0.75] transition-all duration-300 text-base-content">
                         <span class="fa fa-home"></span>
                  </a>
                 </div>
@@ -50,32 +42,32 @@
             <div class="w-full px-10 py-5">   
 
             <template class="js-skeleton-template">
-                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-3 sm:flex-row sm:gap-0">
-                <div class="flex flex-col gap-2 sm:gap-5 items-start  sm:items-center w-full sm:max-w-[275px] sm:justify-between sm:flex-row">
-                    <span class="min-w-[60px] max-w-[125px] text-start w-auto inline-block gap-1 skeleton min-h-[22px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
-                    <span class="max-w-[170px] w-full text-start skeleton inline-block min-h-[25px] bg-[#0003] dark:bg-[#ddd3]">
+                <div class="js-skeleton-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-3 sm:flex-row sm:gap-0 border-1 dark:border-gray">
+                <div class="flex flex-col gap-2 sm:gap-5 items-start  sm:items-center w-full sm:max-w-[275px] sm:justify-between sm:flex-row ">
+                    <span class="min-w-[60px] max-w-[125px] text-start w-auto inline-block gap-1 skeleton min-h-[22px] bg-[#0003] border-1 dark:border-gray"></span>
+                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] border-1 dark:border-gray"></span>
+                    <span class="max-w-[170px] w-full text-start skeleton inline-block min-h-[25px] bg-[#0003] border-1 dark:border-gray">
                     </span>
                     </div>
                     <div class="flex gap-x-2 relative top-2">
-                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        <span class="bg-[#0003] border-1 dark:border-gray skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
                         </span>
-                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        <span class="bg-[#0003] border-1 dark:border-gray skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
                         </span>
-                        <span class="bg-[#0003] dark:bg-[#ddd3] skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
+                        <span class="bg-[#0003] border-1 dark:border-gray skeleton w-full sm:w-[40px] h-[40px] flex rounded-[12px]">
                         </span>
                     </div>
                 </div>
             </template>
 
             <template class="js-card-template">
-            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-2 sm:flex-row sm:gap-0">
+            <div class="js-item-card min-h-[90px] text-[20px] w-full bg-[#0001] px-5 sm:px-10 py-5 rounded-[12px] border-[#0005] border-1 flex justify-between dark:text-white dark:border-[#333] flex-col gap-2 sm:flex-row sm:gap-0 border-1 dark:border-gray">
                     <div class="flex flex-col sm:gap-5 items-start  sm:items-center sm:min-w-[50%] max-w-[520px] sm:justify-between sm:flex-row">
                         <span class="min-w-[60px] max-w-[125px] text-start w-auto flex gap-1">
                         ID:
                         <span class="js-item-id text-elipse">1</span>
                     </span>
-                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] dark:bg-[#ddd3]"></span>
+                    <span class="h-[100%] flex gap-1 w-[0.75px] bg-[#0003] dark:bg-gray"></span>
                     <span class="min-w-[220px] w-full text-start">
                         Name:
                         <span class="js-item-name text-elipse">ABCD</span>
@@ -161,23 +153,23 @@
 
             <template class="js-details-skeleton-template">
                 <div class="js-car-card flex flex-col  w-full min-w-[320px] rounded-[12px] py-3 px-3 gap-2">
-                    <span class="min-h-[30px] max-w-[140px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[30px] w-full skeleton dark:bg-[#0003]"></span>
-                    <span class="min-h-[60px] w-full skeleton dark:bg-[#0003]"></span>
+                    <span class="min-h-[30px] max-w-[140px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[30px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
+                    <span class="min-h-[60px] w-full skeleton bg-base-200 dark:border-gray border-1"></span>
                 </div>
             </template>
 
             <template class="js-edit-skeleton-template">
                 <div class="px-8 w-full py-2 flex gap-4 flex-col">
-                    <span class="skeleton  w-full max-w-[180px] h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></span>
+                    <span class="skeleton  w-full max-w-[180px] h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-gray"></span>
                     <div class="grid grid-cols-2 gap-4 w-full dark:text-white">
-                        <div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3]"></div><div class="w-full skeleton h-16 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3] col-span-full"></div><div class="w-full skeleton h-11 flex border-1 border-[#0001] bg-[#ddd] dark:bg-[#ddd3] col-span-full"></div>
+                        <div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:bg-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-8 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray"></div><div class="w-full skeleton h-16 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray col-span-full"></div><div class="w-full skeleton h-11 flex border-1 border-[#0001] bg-[#ddd] dark:border-gray col-span-full"></div>
                     </div>
                 </div>
             </template>
@@ -193,7 +185,7 @@
             <!-- Main Box Section -->
 
             <div class="flex items-center justify-between pb-10">
-                <button class="js-add-modal-open bg-[#0009] text-white cursor-pointer rounded-[10px] h-full min-h-[42px] px-4 transition-colors duration-300 hover:bg-[#000] dark:hover:bg-[#222] dark:bg-[#444] dark:text-white dark:border-2 dark:border-transparent dark:hover:border-white">
+                <button class="js-add-modal-open bg-[#0009] text-white cursor-pointer rounded-[10px] h-full min-h-[42px] px-4 transition-colors duration-300 hover:bg-[#000] dark:hover:bg-[#222] dark:bg-[#444] dark:text-white dark:border-2 border-1 dark:border-gray hover:opacity-[0.85] transition-opacity duration-300">
                     <span class="fas fa-plus"></span>
                     <span>Add car</span>
                 </button>
@@ -204,8 +196,8 @@
 
             <!-- Modals Section -->
 
-            <div class="js-edit-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden flex-col dark:bg-[#333]">
-                <button class="js-edit-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal">
+            <div class="js-edit-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden flex-col bg-base-200">
+                <button class="js-edit-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-base-content flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:border-gray" data-tip="Close Modal">
                     <span class="fa fa-xmark"></span>
                 </button>
 
@@ -220,44 +212,44 @@
                 <div class="js-edit-form px-4 hidden">
                     <span class="text-[22px] dark:text-white">Edit car details</span>
                     <form class="grid grid-cols-2 gap-4 w-full dark:text-white" id="editCarDetailsForm">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-name" name="name" aria-label="name">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-trim" name="trim" aria-label="trim">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-year" name="year" aria-label="year">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-generation" name="generation" aria-label="generation">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-country" name="country" aria-label="country">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-category" name="category" aria-label="category">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-color-name" name="colorName" aria-label="color-name">
-                        <label for="carColor" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-name" name="name" aria-label="name">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-trim" name="trim" aria-label="trim">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-year" name="year" aria-label="year">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-generation" name="generation" aria-label="generation">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-country" name="country" aria-label="country">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-category" name="category" aria-label="category">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-color-name" name="colorName" aria-label="color-name">
+                        <label for="carColor" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             Car color
                             <input class="w-full grow  cursor-pointer rounded-[120000px] overflow-hidden" type="color" name="color" id="carColor" aria-label="car_color">
                         </label>
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-door-count" name="doorCount" aria-label="door-count">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-seat-count" name="seatCount" aria-label="seat-count">
-                        <label for="carMaxSpeed" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-door-count" name="doorCount" aria-label="door-count">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-seat-count" name="seatCount" aria-label="seat-count">
+                        <label for="carMaxSpeed" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             <input class="w-full grow" type="number" placeholder="Please enter car-max-speed" name="maxSpeed" id="carMaxSpeed" aria-label="max-speed">
                             km/h
                         </label>
-                        <label for="carAcceleration" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <label for="carAcceleration" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             0-100 km/h:
                             <input class="w-full grow " type="text" placeholder="Please enter car-acceleration" name="acceleration" id="carAcceleration" aria-label="acceleration">
                             s
                         </label>
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-engine" name="engine" aria-label="engine">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-horse-power" name="horsepower" aria-label="horsepower">
-                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-fuel-type" name="fuelType" aria-label="fuel-type">
-                        <label for="cityConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-engine" name="engine" aria-label="engine">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="number" placeholder="Please enter car-horse-power" name="horsepower" aria-label="horsepower">
+                        <input class="w-full input rounded-[12px] outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]" type="text" placeholder="Please enter car-fuel-type" name="fuelType" aria-label="fuel-type">
+                        <label for="cityConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             <input class="w-full grow " type="text" placeholder="Please enter car-city-consumption" name="cityConsumption" id="cityConsumption" aria-label="city-consumption">
                             L/100km
                         </label>
-                        <label for="highwayConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <label for="highwayConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             <input class="w-full grow " type="text" placeholder="Please enter car-highway-consumption" name="highwayConsumption" id="highwayConsumption" aria-label="highway-consumption">
                             L/100km
                         </label>
-                        <label for="combinedConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue]">
+                        <label for="combinedConsumption" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue]">
                             <input class="w-full grow " type="text" placeholder="Please enter car-combined-consumption" name="combinedConsumption" id="combinedConsumption" aria-label="combined-consumption">
                             L/100km
                         </label>
-                        <textarea name="description" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] dark:border-[#ddd] dark:text-white dark:outline-[dodgerblue] py-2 min-h-[60px] col-span-full max-h-[150px]" placeholder="Please enter car-description" aria-label="description"></textarea>
+                        <textarea name="description" class="input w-full rounded-[12px]  outline-none dark:bg-[#333] border-base-content border-1 dark:text-white dark:outline-[dodgerblue] py-2 min-h-[60px] col-span-full max-h-[150px]" placeholder="Please enter car-description" aria-label="description"></textarea>
                         <button class="w-full rounded-[12px] col-span-full btn btn-accent text-white" id="editCarDetailsFormSubmit">
                             Edit
                         </button>
@@ -265,15 +257,15 @@
                 </div>
             </div>
 
-            <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden dark:bg-[#333]">
-                <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 dark:bg-[#ddd3] dark:text-white dark:hover:border-white" data-tip="Close Modal">
+            <div class="js-detail-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden bg-base-200">
+                <button class="js-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-[#0003] text-base-content flex items-center justify-center text-[20px] rounded-[10px] fixed right-10 top-8 cursor-pointer  border-2 border-base-content hover:opacity-[0.75] transition-all duration-300" data-tip="Close Modal">
                     <span class="fa fa-xmark"></span>
                 </button>
                 <div class="js-details-skeleton-box"></div>
                 <div class="js-details-box transition-all duration-500"></div>
             </div>
 
-            <div class="js-add-modal w-full h-full bg-[#e3e3e3] top-0 left-0  fixed z-3 justify-center items-center hidden   dark:bg-[#333] overflow-y-scroll">
+            <div class="js-add-modal w-full h-full top-0 left-0  fixed z-3 justify-center items-center hidden bg-base-200 overflow-y-scroll">
                 <button class="js-add-modal-close tooltip tooltip-left w-[40px] h-[40px] bg-red-500 2xl:bg-[#0003] text-[#0008] flex items-center justify-center text-[20px] 2xl:rounded-[10px] fixed top-0 right-1 2xl:right-10 2xl:top-8 cursor-pointer  border-2 border-[transparent] hover:border-[#0008] transition-all duration-300 2xl:dark:bg-[#ddd3] dark:text-white dark:hover:border-white z-3" data-tip="Close Modal"><span class="fa fa-xmark"></span></button>
 
                 <div class="js-add-toast fixed pointer-events-none top-10 transition-opacity duration-300 border-2 flex items-center justify-center py-3 rounded-[12px] min-w-[350px] h-auto bg-[#ddd] text-[#333] dark:text-[#ddd] dark:bg-[#333] opacity-[0]">
@@ -282,45 +274,45 @@
 
 
                 <div class="grid grid-rows-2 grid-cols-1 pt-90 pb-10 2xl:grid-cols-2 gap-3 max-w-[1440px] w-full 2xl:py-0 px-12 dark:text-white" >
-                    <span class="col-span-full text-[22px] relative top-4 text-[#0009] dark:text-[#ddd]">Add new car</span>
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="name" data-input="name">
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="trim" data-input="trim">
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="generation" data-input="generation">
-                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="year" data-input="year">
+                    <span class="col-span-full text-[22px] relative top-4 text-base-content">Add new car</span>
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="name" data-input="name">
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="trim" data-input="trim">
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="generation" data-input="generation">
+                    <input type="number" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="year" data-input="year">
                     <label for="addCarColor" class="rounded-[8px] flex tooltip tooltip-top border-1  overflow-hidden relative px-2 cursor-pointer min-h-[42px]" data-tip="Please mark color">
                     <span class="min-w-[85px] flex justify-center items-center">Car color</span>
-                    <input type="color" id="addCarColor" value="#515151" class="js-data-add-input outline-[dodgerblue] cursor-pointer border-none h-[150px] absolute right-[-4px] top-[-4px] w-[70%]" data-input="color" >
+                    <input type="color" id="addCarColor" value="#515151" class="js-data-add-input border-1 border-content outline-[dodgerblue] cursor-pointer border-none h-[150px] absolute right-[-4px] top-[-4px] w-[70%]" data-input="color" >
                     </label>
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="color name" data-input="colorName">
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="category" data-input="category">
-                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="door count" data-input="doorCount">
-                    <input type="number" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="seat count" data-input="seatCount">
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="color name" data-input="colorName">
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="category" data-input="category">
+                    <input type="number" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="door count" data-input="doorCount">
+                    <input type="number" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="seat count" data-input="seatCount">
                     <label for="addMaxSpeedInput" class="flex">
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px_0px_0px_8px] py-2 px-3 border-r-transparent w-full" aria-label="max-speed" data-input="maxSpeed" id="addMaxSpeedInput">
-                    <span class="dark:border-[#ddd] h-full max-w-[70px] min-w-[50px] flex justify-center items-center px-8 rounded-[0px_8px_8px_0px] border-1 border-black">km/h</span>
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px_0px_0px_8px] py-2 px-3 border-r-transparent w-full" aria-label="max-speed" data-input="maxSpeed" id="addMaxSpeedInput">
+                    <span class="border-base-content border-1 h-full max-w-[70px] min-w-[50px] flex justify-center items-center px-8 rounded-[0px_8px_8px_0px] border-1 ">km/h</span>
                     </label>
                     <label for="addAcceleration" class="flex justify-center">
-                    <span class="dark:border-[#ddd] h-full min-w-[110px] flex justify-center items-center px-1 rounded-[8px_0px_0px_8px] border-1 border-black">0-100 km/h</span>
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[0px] border-r-transparent border-l-transparent py-2 px-3 w-full" aria-label="acceleration" data-input="acceleration" id="addAcceleration">
-                    <span class="dark:border-[#ddd] h-full max-w-[70px] min-w-[50px] flex justify-center items-center px-1 rounded-[0px_8px_8px_0px] border-1 border-black">s</span>
+                    <span class="border-base-content border-1 h-full min-w-[110px] flex justify-center items-center px-1 rounded-[8px_0px_0px_8px] border-1 ">0-100 km/h</span>
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[0px] border-r-transparent border-l-transparent py-2 px-3 w-full" aria-label="acceleration" data-input="acceleration" id="addAcceleration">
+                    <span class="border-base-content border-1 h-full max-w-[70px] min-w-[50px] flex justify-center items-center px-1 rounded-[0px_8px_8px_0px] border-1 ">s</span>
                     </label>
-                    <input type="text" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="engine" data-input="engine">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="horsepower" data-input="horsepower">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="country" data-input="country">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="fuel type" data-input="fuelType">
+                    <input type="text" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="engine" data-input="engine">
+                    <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="horsepower" data-input="horsepower">
+                    <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="country" data-input="country">
+                    <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3" aria-label="fuel type" data-input="fuelType">
                     <label for="addCityConsumption" class="flex">
-                        <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="city consumption" data-input="cityConsumption" id="addCityConsumption">
-                        <span class="dark:border-[#ddd] dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1 border-black border-l-transparent">L/100km</span>
+                        <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="city consumption" data-input="cityConsumption" id="addCityConsumption">
+                        <span class="border-base-content border-1 dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1  border-l-transparent">L/100km</span>
                     </label>
                     <label for="addHighwayConsumption" class="flex">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="highway consumption" data-input="highwayConsumption" id="addHighwayConsumption">
-                    <span class="dark:border-[#ddd] dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1 border-black border-l-transparent">L/100km</span>
+                    <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="highway consumption" data-input="highwayConsumption" id="addHighwayConsumption">
+                    <span class="border-base-content border-1 dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1  border-l-transparent">L/100km</span>
                     </label>
                     <label for="addCombinedConsumption" class="flex">
-                    <input type="input" class="js-data-add-input outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="combined consumption" data-input="combinedConsumption" id="addCombinedConsumption">
-                    <span class="dark:border-[#ddd] dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1 border-black border-l-transparent">L/100km</span>
+                    <input type="input" class="js-data-add-input border-1 border-content outline-[dodgerblue] rounded-[8px] py-2 px-3 w-full rounded-[8px_0px_0px_8px]" aria-label="combined consumption" data-input="combinedConsumption" id="addCombinedConsumption">
+                    <span class="border-base-content border-1 dark:border-l-transparent px-3 flex items-center justify-center border-1 rounded-[0px_8px_8px_0px] border-1  border-l-transparent">L/100km</span>
                     </label>
-                    <textarea class="js-data-add-input outline-[dodgerblue] w-full col-span-full rounded-[8px] py-2 px-3 max-h-[150px]" aria-label="description" data-input="description"></textarea>
+                    <textarea class="js-data-add-input border-1 border-content outline-[dodgerblue] w-full col-span-full rounded-[8px] py-2 px-3 max-h-[150px]" aria-label="description" data-input="description"></textarea>
                     <button class="js-data-add-button col-span-full w-full flex justify-center items-center bg-[dodgerblue] py-3 rounded-[12px] text-white cursor-pointer hover:opacity-[0.80] transition-opacity duration-300">
                         <span>
                             Add car
